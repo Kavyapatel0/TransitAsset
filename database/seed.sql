@@ -31,13 +31,13 @@ INSERT INTO locations (id, name, type, address, city, state, postal_code, contac
 
 -- USERS
 INSERT INTO users (id, name, email, password_hash, role_id, department_id, location_id, status) VALUES
-(1, 'Arjun Sharma', 'admin@transitasset.local', '$2b$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj3A7zGlRBAS', 1, 1, 8, 'ACTIVE'),
-(2, 'Priya Nair', 'manager.central@transitasset.local', '$2b$12$8K1p/a0dR1xqmhV0j3VRn.ZFuG7jfHrSswVb8cAL.bXnGJflPw5Ku', 2, 2, 1, 'ACTIVE'),
-(3, 'Ravi Kumar', 'manager.north@transitasset.local', '$2b$12$8K1p/a0dR1xqmhV0j3VRn.ZFuG7jfHrSswVb8cAL.bXnGJflPw5Ku', 2, 2, 2, 'ACTIVE'),
-(4, 'Sanjay Patel', 'tech1@transitasset.local', '$2b$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC3.YGQN1D7AqXgknFFC', 3, 4, 1, 'ACTIVE'),
-(5, 'Meena Reddy', 'tech2@transitasset.local', '$2b$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC3.YGQN1D7AqXgknFFC', 3, 4, 1, 'ACTIVE'),
-(6, 'Kiran Babu', 'tech3@transitasset.local', '$2b$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC3.YGQN1D7AqXgknFFC', 3, 4, 2, 'ACTIVE'),
-(7, 'Deepa Krishnan', 'tech4@transitasset.local', '$2b$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC3.YGQN1D7AqXgknFFC', 3, 5, 3, 'ACTIVE');
+(1, 'Arjun Sharma', 'admin@transitasset.local', '$2b$12$pf/LWw/qyn14LPeXxFUWx.VHHa6EqcaXp2ukW1pFylxOWVcSO684i', 1, 1, 8, 'ACTIVE'),
+(2, 'Priya Nair', 'manager.central@transitasset.local', '$2b$12$2WQOpKLjqk4TAitRaLVzJuZvbwUre.znpnWF9208B5Qs4DcuXiWJ.', 2, 2, 1, 'ACTIVE'),
+(3, 'Ravi Kumar', 'manager.north@transitasset.local', '$2b$12$2WQOpKLjqk4TAitRaLVzJuZvbwUre.znpnWF9208B5Qs4DcuXiWJ.', 2, 2, 2, 'ACTIVE'),
+(4, 'Sanjay Patel', 'tech1@transitasset.local', '$2b$12$rAcDD5x42BxRLCDMni4Hd.z3.1pD/A.TYAh931sGW/hiNo3PfwzLq', 3, 4, 1, 'ACTIVE'),
+(5, 'Meena Reddy', 'tech2@transitasset.local', '$2b$12$rAcDD5x42BxRLCDMni4Hd.z3.1pD/A.TYAh931sGW/hiNo3PfwzLq', 3, 4, 1, 'ACTIVE'),
+(6, 'Kiran Babu', 'tech3@transitasset.local', '$2b$12$rAcDD5x42BxRLCDMni4Hd.z3.1pD/A.TYAh931sGW/hiNo3PfwzLq', 3, 4, 2, 'ACTIVE'),
+(7, 'Deepa Krishnan', 'tech4@transitasset.local', '$2b$12$rAcDD5x42BxRLCDMni4Hd.z3.1pD/A.TYAh931sGW/hiNo3PfwzLq', 3, 5, 3, 'ACTIVE');
 
 UPDATE departments SET manager_id = 1 WHERE id = 1;
 UPDATE departments SET manager_id = 2 WHERE id = 2;

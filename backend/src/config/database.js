@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   port: parseInt(process.env.DB_PORT) || 3306,
@@ -13,7 +15,11 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   timezone: '+00:00',
-  dateStrings: false
+  dateStrings: false,
+  // TiDB Cloud requires SSL in production
+  ...(isProduction && {
+    ssl: { rejectUnauthorized: true }
+  })
 });
 
 export const query = async (sql, params) => {

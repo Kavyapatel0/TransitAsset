@@ -1,0 +1,10 @@
+import express from 'express';
+import { getDepartments, getDepartment, createDepartment, updateDepartment } from '../controllers/departmentController.js';
+import { authenticate, authorize } from '../middleware/auth.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/', getDepartments);
+router.get('/:id', getDepartment);
+router.post('/', authorize('ADMIN'), createDepartment);
+router.put('/:id', authorize('ADMIN'), updateDepartment);
+export default router;

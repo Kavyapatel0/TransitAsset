@@ -1,0 +1,10 @@
+import express from 'express';
+import { getMaintenanceRequests, getMaintenance, createMaintenance, updateMaintenance } from '../controllers/maintenanceController.js';
+import { authenticate, authorize } from '../middleware/auth.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/', getMaintenanceRequests);
+router.get('/:id', getMaintenance);
+router.post('/', authorize('ADMIN', 'DEPOT_MANAGER', 'TECHNICIAN'), createMaintenance);
+router.put('/:id', authorize('ADMIN', 'DEPOT_MANAGER', 'TECHNICIAN'), updateMaintenance);
+export default router;

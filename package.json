@@ -1,0 +1,10 @@
+{
+  "name": "transitasset",
+  "version": "1.0.0",
+  "description": "TransitAsset - Full-stack asset management platform",
+  "type": "module",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "install-all": "npm install --prefix frontend && npm install --prefix backend"
+  }
+}

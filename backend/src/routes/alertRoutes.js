@@ -1,0 +1,10 @@
+import express from 'express';
+import { getAlerts, markAlertRead, markAllRead, getUnreadCount } from '../controllers/alertController.js';
+import { authenticate } from '../middleware/auth.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/', getAlerts);
+router.get('/unread-count', getUnreadCount);
+router.put('/:id/read', markAlertRead);
+router.put('/mark-all-read', markAllRead);
+export default router;

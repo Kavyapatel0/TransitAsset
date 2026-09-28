@@ -1,0 +1,11 @@
+import express from 'express';
+import { getUsers, getUser, createUser, updateUser, getRoles } from '../controllers/userController.js';
+import { authenticate, authorize } from '../middleware/auth.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/roles', getRoles);
+router.get('/', authorize('ADMIN'), getUsers);
+router.get('/:id', authorize('ADMIN'), getUser);
+router.post('/', authorize('ADMIN'), createUser);
+router.put('/:id', authorize('ADMIN'), updateUser);
+export default router;

@@ -1,0 +1,10 @@
+import express from 'express';
+import { getLocations, getLocation, createLocation, updateLocation } from '../controllers/locationController.js';
+import { authenticate, authorize } from '../middleware/auth.js';
+const router = express.Router();
+router.use(authenticate);
+router.get('/', getLocations);
+router.get('/:id', getLocation);
+router.post('/', authorize('ADMIN'), createLocation);
+router.put('/:id', authorize('ADMIN'), updateLocation);
+export default router;

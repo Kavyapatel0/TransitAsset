@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { queryOne, query } from '../config/database.js';
 import { success, error, unauthorized } from '../utils/response.js';

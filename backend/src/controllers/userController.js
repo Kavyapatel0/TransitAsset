@@ -1,8 +1,7 @@
 import { query, queryOne } from '../config/database.js';
 import { success, error, notFound } from '../utils/response.js';
 import { auditLog, getClientIP } from '../utils/audit.js';
-import bcrypt from 'bcrypt';
-
+import bcrypt from 'bcryptjs';
 export const getUsers = async (req, res) => {
     try {
         const users = await query(

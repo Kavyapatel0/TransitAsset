@@ -1,6 +1,5 @@
 import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
-const fs = require('fs');
 
 dotenv.config();
 
@@ -17,11 +16,13 @@ const pool = mysql.createPool({
   queueLimit: 0,
   timezone: '+00:00',
   dateStrings: false,
-  // TiDB Cloud requires SSL in production
-    ssl: { 
-    ca: fs.readFileSync(process.env.CA)
+  // TiDB Cloud Serverless uses standard WebPKI certs (trusted by Node natively)
+  ...(isProduction && {
+    ssl: {
+      minVersion: 'TLSv1.2',
+      rejectUnauthorized: true
     }
-  
+  })
 });
 
 export const query = async (sql, params) => {

@@ -3,6 +3,11 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 
+// Global fix for MySQL returning BigInts (like COUNT(*)) which crashes JSON.stringify
+BigInt.prototype.toJSON = function () {
+  return Number(this);
+};
+
 // Routes
 import authRoutes from './routes/authRoutes.js';
 import assetRoutes from './routes/assetRoutes.js';

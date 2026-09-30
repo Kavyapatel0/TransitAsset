@@ -16,7 +16,6 @@ import alertRoutes from './routes/alertRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import auditRoutes from './routes/auditRoutes.js';
 import reportRoutes from './routes/reportRoutes.js';
-import { setupDatabase } from './controllers/setupController.js';
 
 dotenv.config();
 
@@ -62,8 +61,6 @@ app.use('/api/users', userRoutes);
 app.use('/api/audit-logs', auditRoutes);
 app.use('/api/reports', reportRoutes);
 
-// One-time DB setup (protected by SETUP_SECRET header)
-app.get('/api/setup', setupDatabase);
 
 // 404 + Error handlers
 app.use(notFoundHandler);
